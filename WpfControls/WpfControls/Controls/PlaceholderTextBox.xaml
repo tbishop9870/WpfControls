@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="WpfControls.Controls.PlaceholderTextBox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfControls.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" x:Name="Root">
+    <Grid>
+        <TextBox x:Name="TextBoxBacker" DataContext="{Binding ElementName=Root}" SelectionChanged="TextBoxBase_OnSelectionChanged" TextChanged="TextBoxBase_OnTextChanged" CharacterCasing="{Binding CharacterCasing}" MaxLength="{Binding MaxLength}" MaxLines="{Binding MaxLines}" MinLines="{Binding MinLines}" TextAlignment="{Binding TextAlignment}" TextDecorations="{Binding TextDecorations}" Text="{Binding Text, UpdateSourceTrigger=PropertyChanged}" TextWrapping="{Binding TextWrapping}" AcceptsReturn="{Binding AcceptsReturn}" AcceptsTab="{Binding AcceptsTab}" AutoWordSelection="{Binding AutoWordSelection}" CaretBrush="{Binding CaretBrush}" HorizontalScrollBarVisibility="{Binding HorizontalScrollBarVisibility}" IsInactiveSelectionHighlightEnabled="{Binding IsInactiveSelectionHighlightEnabled}" IsReadOnlyCaretVisible="{Binding IsReadOnlyCaretVisible}" IsReadOnly="{Binding IsReadOnly}" IsUndoEnabled="{Binding IsUndoEnabled}" SelectionBrush="{Binding SelectionBrush}" SelectionOpacity="{Binding SelectionOpacity}" UndoLimit="{Binding UndoLimit}" VerticalScrollBarVisibility="{Binding VerticalScrollBarVisibility}" Padding="3"/>
+        <TextBlock DataContext="{Binding ElementName=Root}" Text="{Binding Placeholder}" Foreground="#BBBBBB" IsHitTestVisible="False" VerticalAlignment="Center" Margin="5 0 0 0">
+            <TextBlock.Visibility>
+                <MultiBinding Converter="{StaticResource InvertedVisibilityMultiConverter}">
+                    <Binding ElementName="Root" Path="Text"/>
+                    <Binding ElementName="TextBoxBacker" Path="IsFocused"/>
+                </MultiBinding>
+            </TextBlock.Visibility>
+        </TextBlock>
+        <Button DataContext="{Binding ElementName=Root}" Content="&#10005;" Foreground="#555555" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 5 0" Click="ButtonBase_OnClick" Visibility="{Binding ElementName=Root, Path=Text, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource GeneralVisibilityConverter}}" Cursor="Hand" ForceCursor="True" Style="{StaticResource ContentOnlyButton}"/>
+    </Grid>
+</UserControl>
