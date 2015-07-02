@@ -8,7 +8,7 @@
         <utilities:GeneralVisibilityConverter x:Key="GeneralVisibilityConverter"/>
         <utilities:GeneralVisibilityMultiConverter x:Key="GeneralVisibilityMultiConverter"/>
         <utilities:InvertedGeneralVisibilityMultiConverter x:Key="InvertedVisibilityMultiConverter"/>
-        
+
         <Style x:Key="ContentOnlyButton" TargetType="{x:Type Button}">
             <Setter Property="Opacity" Value=".5"/>
             <Setter Property="Template">
@@ -21,6 +21,28 @@
                             </Trigger>
                             <Trigger Property="IsPressed" Value="True">
                                 <Setter Property="Opacity" Value="1"></Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="KeyPadButton" TargetType="{x:Type Button}">
+            <Setter Property="Opacity" Value=".6"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="ForceCursor" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Padding="{TemplateBinding Padding}" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value=".8"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Opacity" Value="1"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>

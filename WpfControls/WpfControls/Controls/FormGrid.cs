@@ -41,7 +41,8 @@ namespace WpfControls.Controls
             var index = RowDefinitions.Count;
             var label = new TextBlock
             {
-                Text = row.Header
+                Text = row.Header,
+                TextAlignment = TextAlignment.Right
             };
             SetRow(label, index);
             var content = row.Content;

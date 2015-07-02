@@ -56,6 +56,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Controls\FormGrid.cs" />
+    <Compile Include="Controls\KeyPad.cs" />
+    <Compile Include="Utilities\Command.cs" />
     <Compile Include="Utilities\GeneralVisibilityConverter.cs" />
     <Page Include="Controls\PlaceholderTextBox.xaml">
       <SubType>Designer</SubType>

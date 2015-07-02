@@ -6,9 +6,11 @@
         xmlns:local="clr-namespace:WpfControls"
         xmlns:controls="clr-namespace:WpfControls.Controls"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="500" Width="600">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -23,5 +25,7 @@
                 <TextBox/>
             </controls:FormRow>
         </controls:FormGrid>
+        <controls:KeyPad Grid.Row="4" x:Name="Pad"/>
+        <TextBlock Grid.Row="3" Text="{Binding ElementName=Pad, Path=Text}"/>
     </Grid>
 </Window>
